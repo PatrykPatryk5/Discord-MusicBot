@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 const command = new SlashCommand()
 	.setName("skip")
-	.setDescription("Skip the current song")
+	.setDescription("Pomijanie bieżącego utworu")
 	.setRun(async (client, interaction, options) => {
 		let channel = await client.getChannel(client, interaction);
 		if (!channel) {
@@ -18,7 +18,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("Lavalink node is not connected"),
+						.setDescription("Węzeł Lavalink nie jest podłączony"),
 				],
 			});
 		}
@@ -28,7 +28,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("There is nothing to skip."),
+						.setDescription("Nie ma nic do pominięcia."),
 				],
 				ephemeral: true,
 			});
@@ -40,7 +40,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor("RED")
-					.setDescription(`There is nothing after [${ song.title }](${ song.uri }) in the queue.`),
+					.setDescription(`Nie ma nic po [${ song.title }](${ song.uri }) w kolejce.`),
 			],
 		})}
 		
@@ -51,7 +51,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor(client.config.embedColor)
-					.setDescription("✅ | **Skipped!**"),
+					.setDescription("✅ | **Pominięto!**"),
 			],
 		});
 	});

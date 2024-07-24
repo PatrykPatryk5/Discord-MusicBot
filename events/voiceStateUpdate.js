@@ -77,11 +77,11 @@ module.exports = async (client, oldState, newState) => {
 					player.pause(false);
 					let playerResumed = new MessageEmbed()
 						.setColor(client.config.embedColor)
-						.setTitle(`Resumed!`, client.config.iconURL)
+						.setTitle(`Wznowiono!`, client.config.iconURL)
 						.setDescription(
-							`Playing  [${ player.queue.current.title }](${ player.queue.current.uri })`,
+							`Odtwarzanie  [${ player.queue.current.title }](${ player.queue.current.uri })`,
 						)
-						.setFooter({ text: `The current song has been resumed.` });
+						.setFooter({ text: `Bieżący utwór został wznowiony.` });
 					
 					let resumeMessage = await client.channels.cache
 						.get(player.textChannel)
@@ -106,9 +106,9 @@ module.exports = async (client, oldState, newState) => {
 					
 					let playerPaused = new MessageEmbed()
 						.setColor(client.config.embedColor)
-						.setTitle(`Paused!`, client.config.iconURL)
+						.setTitle(`Wstrzymane!`, client.config.iconURL)
 						.setFooter({
-							text: `The current song has been paused because theres no one in the voice channel.`,
+							text: `Bieżący utwór został wstrzymany, ponieważ na kanale głosowym nie ma nikogo.`,
 						});
 					
 					let pausedMessage = await client.channels.cache
@@ -125,10 +125,10 @@ module.exports = async (client, oldState, newState) => {
 								let leftEmbed = new MessageEmbed()
 									.setColor(client.config.embedColor)
 									.setAuthor({
-									name: "Disconnected!",
+									name: "Rozłączony!",
 									iconURL: client.config.iconURL,
 									})
-									.setFooter({ text: "Left because there is no one left in the voice channel." })
+									.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
 									.setTimestamp();
 								let Disconnected = await client.channels.cache
 									.get(player.textChannel)
@@ -143,10 +143,10 @@ module.exports = async (client, oldState, newState) => {
 						let leftEmbed = new MessageEmbed()
 							.setColor(client.config.embedColor)
 							.setAuthor({
-							name: "Disconnected!",
+							name: "Rozłączony!",
 							iconURL: client.config.iconURL,
 							})
-							.setFooter({ text: "Left because there is no one left in the voice channel." })
+							.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
 							.setTimestamp();
 						let Disconnected = await client.channels.cache
 							.get(player.textChannel)
@@ -162,9 +162,9 @@ module.exports = async (client, oldState, newState) => {
 					
 					let playerPaused = new MessageEmbed()
 						.setColor(client.config.embedColor)
-						.setTitle(`Paused!`, client.config.iconURL)
+						.setTitle(`Wstrzymany!`, client.config.iconURL)
 						.setFooter({
-							text: `The current song has been paused because theres no one in the voice channel.`,
+							text: `Bieżący utwór został wstrzymany, ponieważ na kanale głosowym nie ma nikogo.`,
 						});
 					
 					let pausedMessage = await client.channels.cache
@@ -177,10 +177,10 @@ module.exports = async (client, oldState, newState) => {
 							let leftEmbed = new MessageEmbed()
 								.setColor(client.config.embedColor)
 								.setAuthor({
-								name: "Disconnected!",
+								name: "Rozłączony!",
 								iconURL: client.config.iconURL,
 								})
-								.setFooter({ text: "Left because there is no one left in the voice channel." })
+								.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
 								.setTimestamp();
 							let Disconnected = await client.channels.cache
 								.get(player.textChannel)
@@ -197,10 +197,10 @@ module.exports = async (client, oldState, newState) => {
 						let leftEmbed = new MessageEmbed()
 						.setColor(client.config.embedColor)
 						.setAuthor({
-						name: "Disconnected!",
+						name: "Rozłączony!",
 						iconURL: client.config.iconURL,
 						})
-						.setFooter({ text: "Left because there is no one left in the voice channel." })
+						.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
 						.setTimestamp();
 						let Disconnected = await client.channels.cache
 							.get(player.textChannel)

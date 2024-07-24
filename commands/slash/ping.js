@@ -3,12 +3,12 @@ const SlashCommand = require("../../lib/SlashCommand");
 
 const command = new SlashCommand()
   .setName("ping")
-  .setDescription("View the bot's latency")
+  .setDescription("Wyświetlanie opóźnienia bota")
   .setRun(async (client, interaction, options) => {
     let msg = await interaction.channel.send({
       embeds: [
         new MessageEmbed()
-          .setDescription("🏓 | Fetching ping...")
+          .setDescription("🏓 | Ping...")
           .setColor("#6F8FAF"),
       ],
     });
@@ -47,19 +47,19 @@ const command = new SlashCommand()
           .setTitle("🏓 | Pong!")
           .addFields(
             {
-              name: "API Latency",
+              name: "Opóźnienie API",
               value: `\`\`\`yml\n${apiState} | ${apiPing}ms\`\`\``,
               inline: true,
             },
             {
-              name: "Bot Latency",
+              name: "Opóźnienie bota",
               value: `\`\`\`yml\n${botState} | ${botPing}ms\`\`\``,
               inline: true,
             }
           )
           .setColor(client.config.embedColor)
           .setFooter({
-            text: `Requested by ${interaction.user.tag}`,
+            text: `Na żądanie ${interaction.user.tag}`,
             iconURL: interaction.user.avatarURL(),
           }),
       ],

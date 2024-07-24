@@ -5,12 +5,12 @@ const escapeMarkdown = require("discord.js").Util.escapeMarkdown;
 const command = new SlashCommand()
   .setName("play")
   .setDescription(
-    "Searches and plays the requested song \nSupports: \nYoutube, Spotify, Deezer, Apple Music"
+    "Wyszukuje i odtwarza żądany utwór \nObsługuje: \YouTube, Spotify, Deezer, Apple Music"
   )
   .addStringOption((option) =>
     option
       .setName("query")
-      .setDescription("What am I looking for?")
+      .setDescription("Czego szukam?")
       .setAutocomplete(true)
       .setRequired(true)
   )
@@ -23,7 +23,7 @@ const command = new SlashCommand()
     let node = await client.getLavalink(client);
     if (!node) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed("Lavalink node is not connected")],
+        embeds: [client.ErrorEmbed("Węzeł Lavalink nie jest podłączony")],
       });
     }
 
@@ -49,7 +49,7 @@ const command = new SlashCommand()
       embeds: [
         new MessageEmbed()
           .setColor(client.config.embedColor)
-          .setDescription(":mag_right: **Searching...**"),
+          .setDescription(":mag_right: **Szukam...**"),
       ],
       fetchReply: true,
     });
@@ -71,7 +71,7 @@ const command = new SlashCommand()
           embeds: [
             new MessageEmbed()
               .setColor("RED")
-              .setDescription("There was an error while searching"),
+              .setDescription("Wystąpił błąd podczas wyszukiwania"),
           ],
         })
         .catch(this.warn);
@@ -86,7 +86,7 @@ const command = new SlashCommand()
           embeds: [
             new MessageEmbed()
               .setColor("RED")
-              .setDescription("No results were found"),
+              .setDescription("Nie znaleziono żadnych wyników"),
           ],
         })
         .catch(this.warn);
@@ -103,17 +103,17 @@ const command = new SlashCommand()
       var title = title.replace(/\[/g, "");
       let addQueueEmbed = new MessageEmbed()
         .setColor(client.config.embedColor)
-        .setAuthor({ name: "Added to queue", iconURL: client.config.iconURL })
-        .setDescription(`[${title}](${res.tracks[0].uri})` || "No Title")
+        .setAuthor({ name: "Dodano do kolejki", iconURL: client.config.iconURL })
+        .setDescription(`[${title}](${res.tracks[0].uri})` || "Brak tytułu")
         .setURL(res.tracks[0].uri)
         .addFields(
           {
-            name: "Added by",
+            name: "Dodane przez",
             value: `<@${interaction.user.id}>`,
             inline: true,
           },
           {
-            name: "Duration",
+            name: "Długość",
             value: res.tracks[0].isStream
               ? `\`LIVE 🔴 \``
               : `\`${client.ms(res.tracks[0].duration, {
@@ -134,7 +134,7 @@ const command = new SlashCommand()
 
       if (player.queue.totalSize > 1) {
         addQueueEmbed.addFields({
-          name: "Position in queue",
+          name: "Pozycja w kolejce",
           value: `${player.queue.size}`,
           inline: true,
         });
@@ -159,19 +159,19 @@ const command = new SlashCommand()
       let playlistEmbed = new MessageEmbed()
         .setColor(client.config.embedColor)
         .setAuthor({
-          name: "Playlist added to queue",
+          name: "Playlista dodana do kolejki",
           iconURL: client.config.iconURL,
         })
         .setThumbnail(res.tracks[0].thumbnail)
         .setDescription(`[${res.playlist.name}](${query})`)
         .addFields(
           {
-            name: "Enqueued",
-            value: `\`${res.tracks.length}\` songs`,
+            name: "W kolejce",
+            value: `\`${res.tracks.length}\` piosenek`,
             inline: true,
           },
           {
-            name: "Playlist duration",
+            name: "Długość playlisty",
             value: `\`${client.ms(res.playlist.duration, {
               colonNotation: true,
               secondsDecimalDigits: 0,

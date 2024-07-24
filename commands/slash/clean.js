@@ -2,7 +2,7 @@ const SlashCommand = require("../../lib/SlashCommand");
 
 const command = new SlashCommand()
 	.setName("clean")
-	.setDescription("Cleans the last 100 bot messages from channel.")
+	.setDescription("Czyści 100 ostatnich wiadomości bota z kanału.")
 	.addIntegerOption((option) =>
 		option
 			.setName("number")
@@ -37,7 +37,7 @@ const command = new SlashCommand()
 						}
 					}
 					
-					await interaction.editReply({ embeds: [client.Embed(`:white_check_mark: | Deleted ${ botMessages.length } bot messages`)] });
+					await interaction.editReply({ embeds: [client.Embed(`:white_check_mark: | Usunięte wiadomości bota ${ botMessages.length }`)] });
 					setTimeout(() => {
 						interaction.deleteReply();
 					}, 5000);

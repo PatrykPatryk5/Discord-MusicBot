@@ -53,9 +53,9 @@ const Home = (_props: any) => {
                 alignItems: 'center',
                 flexDirection: 'column',
             } }>
-                <Text h1 css={ {textGradient: "180deg, $blue600 -20%, $blue800 100%",} }>Discord Music Bot</Text>
-                <Text h3 css={ {color: '$gray800'} }>An advanced discord music bot, supports Spotify, SoundCloud,
-                    YouTube with Shuffling, Volume Control and Web Dashboard!</Text>
+                <Text h1 css={ {textGradient: "180deg, $blue600 -20%, $blue800 100%",} }>GRAJEK</Text>
+                <Text h3 css={ {color: '$gray800'} }>Zaawansowany bot muzyczny Discord, obsługuje Spotify, SoundCloud,
+                YouTube z tasowaniem, regulacją głośności i pulpitem nawigacyjnym!</Text>
                 <Container css={ {display: 'flex', alignItems: 'center', justifyContent: 'center'} }>
                     <Button color="primary" onClick={ () => window.location.pathname = '/login' } shadow style={ {
                         marginTop: '1rem'
@@ -82,10 +82,10 @@ const Home = (_props: any) => {
                         textAlign: 'center'
                     } }>
                         <YouTube style={ {fontSize: '150px', color: '#3694FF'} }/>
-                        <Text h3>Spotify, Soundcloud, and Youtube support</Text>
+                        <Text h3>Obsługa Spotify, Soundcloud i Youtube</Text>
                         <Text css={ {color: '$gray800'} }>
-                            Use your spotify playlist, youtube videos, youtube playlists
-                            and much more using this bot
+                        Korzystaj z list odtwarzania spotify, filmów z youtube, list odtwarzania youtube
+                        i wiele więcej za pomocą tego bota
                         </Text>
                     </Card>
                     <Card isHoverable css={ {
@@ -98,9 +98,9 @@ const Home = (_props: any) => {
                         textAlign: 'center'
                     } }>
                         <AudiotrackRounded style={ {fontSize: '150px', color: '#3694FF'} }/>
-                        <Text h3>Lag-free Music</Text>
+                        <Text h3>Muzyka bez opóźnień</Text>
                         <Text css={ {color: '$gray800'} }>
-                            This bot will never lag when playing any song in a voice channel
+                        Ten bot nigdy się nie opóźni podczas odtwarzania dowolnego utworu na kanale głosowym.
                         </Text>
                     </Card>
                     <Card isHoverable css={ {
@@ -113,10 +113,10 @@ const Home = (_props: any) => {
                         textAlign: 'center'
                     } }>
                         <SettingsRounded style={ {fontSize: '150px', color: '#3694FF'} }/>
-                        <Text h3>Server Settings</Text>
+                        <Text h3>Ustawienia serwera</Text>
                         <Text css={ {color: '$gray800'} }>
-                            Control your song looping song or queue, play or pause your song easily, or stop the bot
-                            completely.
+                        Steruj zapętlonym utworem lub kolejką, łatwo odtwarzaj lub wstrzymuj utwór, lub całkowicie zatrzymaj bota.
+                        całkowicie.
                         </Text>
                     </Card>
                 </Container>
@@ -128,8 +128,8 @@ const Home = (_props: any) => {
                 alignItems: 'center',
                 minHeight: '60vh'
             } }>
-                <Text h2>What are you waiting for?</Text>
-                <Button shadow size={ 'md' } css={ {marginTop: '5em'} }>Start Now</Button>
+                <Text h2>Na co czekasz?</Text>
+                <Button shadow size={ 'md' } css={ {marginTop: '5em'} }>Zacznij teraz</Button>
             </Container>
         </Container>
     )

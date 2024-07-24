@@ -4,7 +4,7 @@ const SlashCommand = require("../../lib/SlashCommand");
 
 const command = new SlashCommand()
   .setName("autoleave")
-  .setDescription("Automatically leaves when everyone leaves the voice channel (toggle)")
+  .setDescription("Automatycznie wychodzi, gdy wszyscy opuszczą kanał głosowy (przełącznik)")
   .setRun(async (client, interaction) => {
     let channel = await client.getChannel(client, interaction);
     if (!channel) return;
@@ -17,7 +17,7 @@ const command = new SlashCommand()
         embeds: [
           new MessageEmbed()
             .setColor("RED")
-            .setDescription("Lavalink node is not connected"),
+            .setDescription("Węzeł Lavalink nie jest podłączony"),
         ],
       });
 
@@ -26,7 +26,7 @@ const command = new SlashCommand()
         embeds: [
           new MessageEmbed()
             .setColor("RED")
-            .setDescription("There's nothing playing in the queue"),
+            .setDescription("W kolejce nic się nie dzieje"),
         ],
         ephemeral: true,
       });
@@ -42,9 +42,9 @@ const command = new SlashCommand()
       player.set("autoLeave", false);
     }
     autoLeaveEmbed
-			.setDescription(`**Auto Leave is** \`${!autoLeave ? "ON" : "OFF"}\``)
+			.setDescription(`**Automatyczne wychodzenie jest** \`${!autoLeave ? "WŁ" : "WYŁ"}\``)
 			.setFooter({
-			  text: `The player will ${!autoLeave ? "now automatically" : "not automatically"} leave when the voice channel is empty.`
+			  text: `Bot będzie ${!autoLeave ? "automatycznie" : "nie automatycznie"} wychodził, gdy kanał głosowy jest pusty.`
 			});
     client.warn(
       `Player: ${player.options.guild} | [${colors.blue(

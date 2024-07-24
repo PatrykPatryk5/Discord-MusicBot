@@ -3,17 +3,17 @@ const { MessageEmbed } = require("discord.js");
 
 const command = new SlashCommand()
 	.setName("move")
-	.setDescription("Moves track to a different position")
+	.setDescription("Przesuwa muzykę do innej pozycji")
 	.addIntegerOption((option) =>
 		option
 			.setName("track")
-			.setDescription("The track number to move")
+			.setDescription("Numer utworu do przeniesienia")
 			.setRequired(true),
 	)
 	.addIntegerOption((option) =>
 		option
 			.setName("position")
-			.setDescription("The position to move the track to")
+			.setDescription("Pozycja, do której ma zostać przesunięta muzyka")
 			.setRequired(true),
 	)
 	
@@ -34,7 +34,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("Lavalink node is not connected"),
+						.setDescription("Węzeł Lavalink nie jest podłączony"),
 				],
 			});
 		}
@@ -44,7 +44,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("There's nothing playing."),
+						.setDescription("Nic nie jest odtwarzane."),
 				],
 				ephemeral: true,
 			});
@@ -52,12 +52,12 @@ const command = new SlashCommand()
 		
 		let trackNum = Number(track) - 1;
 		if (trackNum < 0 || trackNum > player.queue.length - 1) {
-			return interaction.reply(":x: | **Invalid track number**");
+			return interaction.reply(":x: | **Nieprawidłowy numer utworu**");
 		}
 		
 		let dest = Number(position) - 1;
 		if (dest < 0 || dest > player.queue.length - 1) {
-			return interaction.reply(":x: | **Invalid position number**");
+			return interaction.reply(":x: | **Nieprawidłowy numer pozycji**");
 		}
 		
 		const thing = player.queue[trackNum];
@@ -67,7 +67,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor(client.config.embedColor)
-					.setDescription(":white_check_mark: | **Moved track**"),
+					.setDescription(":white_check_mark: | **Przeniesiony utwór**"),
 			],
 		});
 	});
