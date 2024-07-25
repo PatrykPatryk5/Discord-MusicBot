@@ -13,7 +13,7 @@ module.exports = async (client, interaction) => {
         );
         if (!command || !command.run) {
             return interaction.reply(
-                "Sorry the command you used doesn't have any run function",
+                "Niestety polecenie, którego użyłeś, nie ma funkcji uruchamiania",
             );
         }
         client.commandsRan++;
@@ -27,7 +27,7 @@ module.exports = async (client, interaction) => {
         );
         if (!command || !command.run) {
             return interaction.reply(
-                "Sorry the command you used doesn't have any run function",
+                "Niestety polecenie, którego użyłeś, nie ma funkcji uruchamiania",
             );
         }
         client.commandsRan++;

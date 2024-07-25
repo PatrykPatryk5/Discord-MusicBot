@@ -11,10 +11,10 @@ module.exports = async (client, message) => {
   }&permissions=${client.config.inviteScopes.toString().replace(/,/g, "%20")}`;
 
   const buttons = new MessageActionRow().addComponents(
-    new MessageButton().setStyle("LINK").setLabel("Invite me").setURL(invite),
+    new MessageButton().setStyle("LINK").setLabel("Zaproś mnie").setURL(invite),
     new MessageButton()
       .setStyle("LINK")
-      .setLabel("Support server")
+      .setLabel("Serwer wsparcia")
       .setURL(`${client.config.supportServer}`)
   );
 
@@ -22,7 +22,7 @@ module.exports = async (client, message) => {
     const mentionEmbed = new MessageEmbed()
       .setColor(client.config.embedColor)
       .setDescription(
-        `My prefix on this server is \`/\` (Slash Command).\nTo get started you can type \`/help\` to see all my commands.\nIf you can't see it, Please [re-invite](invite) me with the correct permissions.`
+        `Mój prefiks na tym serwerze to \`/\` (Slash Command).\nAby rozpocząć, możesz wpisać \`/help\`, aby zobaczyć wszystkie moje komendy.\nJeśli ich nie widzisz, proszę [zaproś ponownie](invite) mnie z prawidłowymi uprawnieniami.`
       );
 
     message.channel.send({
