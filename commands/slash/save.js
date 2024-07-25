@@ -4,7 +4,7 @@ const prettyMilliseconds = require("pretty-ms");
 
 const command = new SlashCommand()
 	.setName("save")
-	.setDescription("Saves current song to your DM's")
+	.setDescription("Zapisuje bieżący utwór w DM")
 	.setRun(async (client, interaction) => {
 		let channel = await client.getChannel(client, interaction);
 		if (!channel) {
@@ -19,7 +19,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("Lavalink node is not connected"),
+						.setDescription("Węzeł Lavalink nie jest podłączony"),
 				],
 			});
 		}
@@ -29,7 +29,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("There is no music playing right now."),
+						.setDescription("W tej chwili nie jest odtwarzana żadna piosenka."),
 				],
 				ephemeral: true,
 			});
@@ -38,27 +38,27 @@ const command = new SlashCommand()
 		const sendtoDmEmbed = new MessageEmbed()
 			.setColor(client.config.embedColor)
 			.setAuthor({
-				name: "Saved track",
+				name: "Zapisany utwór",
 				iconURL: `${ interaction.user.displayAvatarURL({ dynamic: true }) }`,
 			})
 			.setDescription(
-				`**Saved [${ player.queue.current.title }](${ player.queue.current.uri }) to your DM**`,
+				`**Zapisany [${ player.queue.current.title }](${ player.queue.current.uri }) do twoich wiadomości prywatnych**`,
 			)
 			.addFields(
 				{
-					name: "Track Duration",
+					name: "Czas trwania utworu",
 					value: `\`${ prettyMilliseconds(player.queue.current.duration, {
 						colonNotation: true,
 					}) }\``,
 					inline: true,
 				},
 				{
-					name: "Track Author",
+					name: "Autor utworu",
 					value: `\`${ player.queue.current.author }\``,
 					inline: true,
 				},
 				{
-					name: "Requested Guild",
+					name: "Żądana gildia",
 					value: `\`${ interaction.guild }\``,
 					inline: true,
 				},
@@ -71,7 +71,7 @@ const command = new SlashCommand()
 				new MessageEmbed()
 					.setColor(client.config.embedColor)
 					.setDescription(
-						"Please check your **DMs**. If you didn't receive any message from me please make sure your **DMs** are open",
+						"Sprawdź swoje **DM**. Jeśli nie otrzymałeś ode mnie żadnej wiadomości, upewnij się, że Twoje **DM** są otwarte.",
 					),
 			],
 			ephemeral: true,

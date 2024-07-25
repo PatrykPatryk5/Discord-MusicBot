@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 const escapeMarkdown = require("discord.js").Util.escapeMarkdown;
 
 module.exports = {
-  command: new ContextMenuCommandBuilder().setName("Play Song").setType(3),
+  command: new ContextMenuCommandBuilder().setName("Włącz muzykę").setType(3),
 
   /**
    * This function will handle context menu interaction
@@ -19,7 +19,7 @@ module.exports = {
     let node = await client.getLavalink(client);
     if (!node) {
       return interaction.reply({
-        embeds: [client.ErrorEmbed("Lavalink node is not connected")],
+        embeds: [client.ErrorEmbed("Węzeł Lavalink nie jest podłączony")],
       });
     }
 
@@ -45,7 +45,7 @@ module.exports = {
       embeds: [
         new MessageEmbed()
           .setColor(client.config.embedColor)
-          .setDescription(":mag_right: **Searching...**"),
+          .setDescription(":mag_right: **Szukanie...**"),
       ],
       fetchReply: true,
     });
@@ -69,7 +69,7 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor("RED")
-              .setDescription("There was an error while searching"),
+              .setDescription("Wystąpił błąd"),
           ],
         })
         .catch(this.warn);
@@ -84,7 +84,7 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor("RED")
-              .setDescription("No results were found"),
+              .setDescription("Nic nie znaleziono"),
           ],
         })
         .catch(this.warn);
@@ -101,17 +101,17 @@ module.exports = {
       var title = title.replace(/\[/g, "");
       let addQueueEmbed = new MessageEmbed()
         .setColor(client.config.embedColor)
-        .setAuthor({ name: "Added to queue", iconURL: client.config.iconURL })
-        .setDescription(`[${title}](${res.tracks[0].uri})` || "No Title")
+        .setAuthor({ name: "Dodano do kolejki", iconURL: client.config.iconURL })
+        .setDescription(`[${title}](${res.tracks[0].uri})` || "Brak tytułu")
         .setURL(res.tracks[0].uri)
         .addFields(
           {
-            name: "Added by",
+            name: "Dodane przez",
             value: `<@${interaction.user.id}>`,
             inline: true,
           },
           {
-            name: "Duration",
+            name: "Długość",
             value: res.tracks[0].isStream
               ? `\`LIVE 🔴 \``
               : `\`${client.ms(res.tracks[0].duration, {
@@ -132,7 +132,7 @@ module.exports = {
 
       if (player.queue.totalSize > 1) {
         addQueueEmbed.addFields({
-          name: "Position in queue",
+          name: "Pozycja w kolejce",
           value: `${player.queue.size}`,
           inline: true,
         });
@@ -157,19 +157,19 @@ module.exports = {
       let playlistEmbed = new MessageEmbed()
         .setColor(client.config.embedColor)
         .setAuthor({
-          name: "Playlist added to queue",
+          name: "Playlista dodana do kolejki",
           iconURL: client.config.iconURL,
         })
         .setThumbnail(res.tracks[0].thumbnail)
         .setDescription(`[${res.playlist.name}](${query})`)
         .addFields(
           {
-            name: "Enqueued",
-            value: `\`${res.tracks.length}\` songs`,
+            name: "W kolejce",
+            value: `\`${res.tracks.length}\` piosenek`,
             inline: true,
           },
           {
-            name: "Playlist duration",
+            name: "Czas trwania playlisty",
             value: `\`${client.ms(res.playlist.duration, {
               colonNotation: true,
               secondsDecimalDigits: 0,

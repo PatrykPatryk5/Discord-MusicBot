@@ -3,11 +3,11 @@ const { MessageEmbed } = require("discord.js");
 
 const command = new SlashCommand()
 	.setName("volume")
-	.setDescription("Change the volume of the current song.")
+	.setDescription("Zmiana głośności bieżącego utworu.")
 	.addNumberOption((option) =>
 		option
 			.setName("amount")
-			.setDescription("Amount of volume you want to change. Ex: 10")
+			.setDescription("Ilość głośności, którą chcesz zmienić. np: 10")
 			.setRequired(false),
 	)
 	.setRun(async (client, interaction) => {
@@ -24,7 +24,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("Lavalink node is not connected"),
+						.setDescription("Węzeł Lavalink nie jest podłączony"),
 				],
 			});
 		}
@@ -34,7 +34,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("There is no music playing."),
+						.setDescription("Nie jest odtwarzana muzyka."),
 				],
 				ephemeral: true,
 			});
@@ -47,7 +47,7 @@ const command = new SlashCommand()
 					new MessageEmbed()
 						.setColor(client.config.embedColor)
 						.setDescription(
-							`:loud_sound: | Current volume **${ player.volume }**`,
+							`:loud_sound: | Aktualna głośność **${ player.volume }**`,
 						),
 				],
 			});
@@ -59,7 +59,7 @@ const command = new SlashCommand()
 				new MessageEmbed()
 					.setColor(client.config.embedColor)
 					.setDescription(
-						`:loud_sound: | Successfully set volume to **${ player.volume }**`,
+						`:loud_sound: | Pomyślnie ustawiono głośność na **${ player.volume }**`,
 					),
 			],
 		});

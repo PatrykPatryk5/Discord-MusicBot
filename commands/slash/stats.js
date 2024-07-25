@@ -6,7 +6,7 @@ const os = require("os");
 
 const command = new SlashCommand()
 	.setName("stats")
-	.setDescription("Get information about the bot")
+	.setDescription("Uzyskaj informacje o bocie")
 	.setRun(async (client, interaction) => {
 		// get OS info
 		const osver = os.platform() + " " + os.release();
@@ -52,33 +52,33 @@ const command = new SlashCommand()
 		}
 		
 		const statsEmbed = new MessageEmbed()
-			.setTitle(`${ client.user.username } Information`)
+			.setTitle(`${ client.user.username } Informacje`)
 			.setColor(client.config.embedColor)
 			.setDescription(
-				`\`\`\`yml\nName: ${ client.user.username }#${ client.user.discriminator } [${ client.user.id }]\nAPI: ${ client.ws.ping }ms\nRuntime: ${ runtime }\`\`\``,
+				`\`\`\`yml\nNazwa: ${ client.user.username }#${ client.user.discriminator } [${ client.user.id }]\nAPI: ${ client.ws.ping }ms\nCzas działania: ${ runtime }\`\`\``,
 			)
 			.setFields([
 				{
-					name: `Lavalink stats`,
-					value: `\`\`\`yml\nUptime: ${ lavauptime }\nRAM: ${ lavaram } MB\nPlaying: ${
+					name: `Statystyki Lavalink`,
+					value: `\`\`\`yml\nCzas działania: ${ lavauptime }\nRAM: ${ lavaram } MB\nGra: ${
 						client.manager.nodes.values().next().value.stats.playingPlayers
-					} out of ${
+					} z ${
 						client.manager.nodes.values().next().value.stats.players
 					}\`\`\``,
 					inline: true,
 				},
 				{
-					name: "Bot stats",
-					value: `\`\`\`yml\nGuilds: ${
+					name: "Statystyki bota",
+					value: `\`\`\`yml\nSerwery: ${
 						client.guilds.cache.size
-					} \nNodeJS: ${ nodeVersion }\nDiscordMusicBot: v${
+					} \nNodeJS: ${ nodeVersion }\nGrajek: v${
 						require("../../package.json").version
 					} \`\`\``,
 					inline: true,
 				},
 				{
-					name: "System stats",
-					value: `\`\`\`yml\nOS: ${ osver }\nUptime: ${ sysuptime }\n\`\`\``,
+					name: "Statystyki systemu",
+					value: `\`\`\`yml\nOS: ${ osver }\nCzas działania: ${ sysuptime }\n\`\`\``,
 					inline: false,
 				},
 			])

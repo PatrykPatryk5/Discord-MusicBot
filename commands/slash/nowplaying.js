@@ -5,7 +5,7 @@ const prettyMilliseconds = require("pretty-ms");
 
 const command = new SlashCommand()
 	.setName("nowplaying")
-	.setDescription("Shows the song currently playing in the voice channel.")
+	.setDescription("Wyświetla utwór aktualnie odtwarzany na kanale głosowym.")
 	.setRun(async (client, interaction, options) => {
 		let channel = await client.getChannel(client, interaction);
 		if (!channel) {
@@ -20,7 +20,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("Lavalink node is not connected"),
+						.setDescription("Węzeł Lavalink nie jest podłączony"),
 				],
 			});
 		}
@@ -30,7 +30,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("The bot isn't in a channel."),
+						.setDescription("Bot nie jest w kanale."),
 				],
 				ephemeral: true,
 			});
@@ -41,7 +41,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("There's nothing playing."),
+						.setDescription("Nic nie jest odtwarzane."),
 				],
 				ephemeral: true,
 			});
@@ -53,17 +53,17 @@ const command = new SlashCommand()
         var title = title.replace(/\[/g,"")
 		const embed = new MessageEmbed()
 			.setColor(client.config.embedColor)
-			.setAuthor({ name: "Now Playing", iconURL: client.config.iconURL })
+			.setAuthor({ name: "Teraz odtwarzane", iconURL: client.config.iconURL })
 			// show who requested the song via setField, also show the duration of the song
 			.setFields([
 				{
-					name: "Requested by",
+					name: "Na żądanie",
 					value: `<@${ song.requester.id }>`,
 					inline: true,
 				},
 				// show duration, if live show live
 				{
-					name: "Duration",
+					name: "Długość",
 					value: song.isStream
 						? `\`LIVE\``
 						: `\`${ prettyMilliseconds(player.position, {

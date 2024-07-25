@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 const command = new SlashCommand()
 	.setName("stop")
-	.setDescription("Stops whatever the bot is playing and leaves the voice channel\n(This command will clear the queue)")
+	.setDescription("Zatrzymuje dowolne odtwarzanie bota i pozostawia kanał głosowy (to polecenie wyczyści kolejkę).")
 	
 	.setRun(async (client, interaction, options) => {
 		let channel = await client.getChannel(client, interaction);
@@ -19,7 +19,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("Lavalink node is not connected"),
+						.setDescription("Węzeł Lavalink nie jest podłączony"),
 				],
 			});
 		}
@@ -29,7 +29,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("I'm not in a channel."),
+						.setDescription("Nie jestem w kanale."),
 				],
 				ephemeral: true,
 			});
@@ -47,7 +47,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor(client.config.embedColor)
-					.setDescription(`:wave: | **Bye Bye!**`),
+					.setDescription(`:wave: | **Bajo jajo!**`),
 			],
 		});
 	});

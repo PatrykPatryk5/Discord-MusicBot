@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 const command = new SlashCommand()
 	.setName("loopq")
-	.setDescription("Loop the current song queue")
+	.setDescription("Pętla bieżącej kolejki utworów")
 	.setRun(async (client, interaction, options) => {
 		let channel = await client.getChannel(client, interaction);
 		if (!channel) {
@@ -18,7 +18,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("Lavalink node is not connected"),
+						.setDescription("Węzeł Lavalink nie jest podłączony"),
 				],
 			});
 		}
@@ -28,7 +28,7 @@ const command = new SlashCommand()
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("There is no music playing."),
+						.setDescription("Muzyka nie jest odtwarzana."),
 				],
 				ephemeral: true,
 			});
@@ -37,14 +37,14 @@ const command = new SlashCommand()
 		if (player.setQueueRepeat(!player.queueRepeat)) {
 			;
 		}
-		const queueRepeat = player.queueRepeat? "enabled" : "disabled";
+		const queueRepeat = player.queueRepeat? "włączona" : "wyłączona";
 		
 		interaction.reply({
 			embeds: [
 				new MessageEmbed()
 					.setColor(client.config.embedColor)
 					.setDescription(
-						`:thumbsup: | **Loop queue is now \`${ queueRepeat }\`**`,
+						`:thumbsup: | **Kolejka pętli jest teraz \`${ queueRepeat }\`**`,
 					),
 			],
 		});

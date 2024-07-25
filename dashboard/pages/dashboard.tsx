@@ -14,24 +14,24 @@ const Dashboard = (_props: any) => {
 
     return (<Content>
         <Head>
-            <title>Dashboard | Discord Music Bot</title>
+            <title>Pulpit nawigacyjny | GRAJEK</title>
         </Head>
 
         <h1>Dashboard</h1>
         <div style={ {
             display: 'flex',
         } }>
-            <StatCard title='Commands Ran' amount={ data ? data.commandsRan : "Loading" } icon={
+            <StatCard title='Commands Ran' amount={ data ? data.commandsRan : "Ładowanie" } icon={
                 <RocketLaunchRounded fontSize="large"/> }
             />
-            <StatCard title='Users' amount={ data ? data.users : "Loading" } icon={
+            <StatCard title='Users' amount={ data ? data.users : "Ładowanie" } icon={
                 <PersonRounded fontSize="large"/> }
             />
-            <StatCard title='Servers' amount={ data ? data.servers : "Loading" } icon={
+            <StatCard title='Servers' amount={ data ? data.servers : "Ładowanie" } icon={
                 <DnsRounded fontSize="large"/> }
             />
 
-            <StatCard title='Songs Played' amount={ data ? data.songsPlayed : "Loading" } icon={
+            <StatCard title='Songs Played' amount={ data ? data.songsPlayed : "Ładowanie" } icon={
                 <AudiotrackRounded fontSize="large"/> }
             />
         </div>

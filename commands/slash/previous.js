@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 const command = new SlashCommand()
 .setName("previous")
-.setDescription("Go back to the previous song.")
+.setDescription("Powrót do poprzedniego utworu.")
 .setRun(async (client, interaction) => {
 	let channel = await client.getChannel(client, interaction);
 	if (!channel) {
@@ -18,7 +18,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor("RED")
-					.setDescription("Lavalink node is not connected"),
+					.setDescription("Węzeł Lavalink nie jest podłączony"),
 			],
 		});
 	}
@@ -28,7 +28,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor("RED")
-					.setDescription("There are no previous songs for this session."),
+					.setDescription("Nie ma żadnych wcześniejszych utworów dla tej sesji."),
 			],
 			ephemeral: true,
 		});
@@ -45,7 +45,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor("RED")
-					.setDescription("There is no previous song in the queue."),
+					.setDescription("W kolejce nie ma poprzedniego utworu."),
 			],
 		})}
 
@@ -58,7 +58,7 @@ const command = new SlashCommand()
 			new MessageEmbed()
 				.setColor(client.config.embedColor)
 				.setDescription(
-					`⏮ | Previous song: **${ previousSong.title }**`,
+					`⏮ | Poprzednia piosenka: **${ previousSong.title }**`,
 				),
 		],
 	});

@@ -1,10 +1,10 @@
 module.exports = {
 	helpCmdPerPage: 10, //- Number of commands per page of help command
 	lyricsMaxResults: 5, //- Number of results for lyrics command (Do not touch this value if you don't know what you are doing)
-	adminId: "719878365640916993", //- Replace UserId with the Discord ID of the admin of the bot
-	token: process.env.token || "MTI2NTYyNDk4NzY3NTUyNTE5MQ.GyL4gA.xpAmIZ2K1WbUtlPONJRKugmQRxpTr9jSrQrQOs", //- Bot's Token
-	clientId: process.env.clientId || "1265624987675525191", //- ID of the bot
-	clientSecret: process.env.clientSecret || "M3008movVPA9efIiJas2nBVJ7z9SDoDt", //- Client Secret of the bot
+	adminId: "UserId", //- Replace UserId with the Discord ID of the admin of the bot
+	token: process.env.token || "", //- Bot's Token
+	clientId: process.env.clientId || "", //- ID of the bot
+	clientSecret: process.env.clientSecret || "", //- Client Secret of the bot
 	port: 4200, //- Port of the API and Dashboard
 	scopes: ["identify", "guilds", "applications.commands"], //- Discord OAuth2 Scopes
 	inviteScopes: ["bot", "applications.commands"], // Invite link scopes
@@ -40,7 +40,7 @@ module.exports = {
 		status: "online", //- You can have online, idle, dnd and invisible (Note: invisible makes people think the bot is offline)
 		activities: [
 			{
-				name: "MUZYKA!!!", //- Status Text
+				name: "Music", //- Status Text
 				type: "LISTENING", //- PLAYING, WATCHING, LISTENING, STREAMING
 			},
 		],

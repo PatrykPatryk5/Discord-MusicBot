@@ -8,11 +8,11 @@ const {
 
 const command = new SlashCommand()
   .setName("search")
-  .setDescription("Search for a song")
+  .setDescription("Wyszukaj piosenkę")
   .addStringOption((option) =>
     option
       .setName("query")
-      .setDescription("The song to search for")
+      .setDescription("Utwór do wyszukania")
       .setRequired(true)
   )
   .setRun(async (client, interaction, options) => {
@@ -29,7 +29,7 @@ const command = new SlashCommand()
         embeds: [
           new MessageEmbed()
             .setColor("RED")
-            .setDescription("Lavalink node is not connected"),
+            .setDescription("Węzeł Lavalink nie jest podłączony"),
         ],
       });
     }
@@ -48,7 +48,7 @@ const command = new SlashCommand()
         return interaction.reply({
           embeds: [
             new MessageEmbed()
-              .setDescription("An error occured while searching for the song")
+              .setDescription("Wystąpił błąd podczas wyszukiwania utworu")
               .setColor("RED"),
           ],
           ephemeral: true,
@@ -59,7 +59,7 @@ const command = new SlashCommand()
         embeds: [
           new MessageEmbed()
             .setAuthor({
-              name: "An error occured while searching for the song",
+              name: "Wystąpił błąd podczas wyszukiwania utworu",
             })
             .setColor("RED"),
         ],
@@ -71,7 +71,7 @@ const command = new SlashCommand()
       return interaction.reply({
         embeds: [
           new MessageEmbed()
-            .setDescription(`No results found for \`${search}\``)
+            .setDescription(`Nie znaleziono żadnych wyników dla \`${search}\``)
             .setColor("RED"),
         ],
         ephemeral: true,
@@ -99,7 +99,7 @@ const command = new SlashCommand()
       const menus = new MessageActionRow().addComponents(
         new MessageSelectMenu()
           .setCustomId("select")
-          .setPlaceholder("Select a song")
+          .setPlaceholder("Wybierz utwór")
           .addOptions(resultFromSearch)
       );
 
@@ -108,7 +108,7 @@ const command = new SlashCommand()
           new MessageEmbed()
             .setColor(client.config.embedColor)
             .setDescription(
-              `Here are some of the results I found for \`${search}\`. Please select track within \`30 seconds\``
+              `Oto niektóre z wyników znalezionych dla \`${search}\`. Wybierz utwór w ciągu \`30 sekund\``
             ),
         ],
         components: [menus],
@@ -138,23 +138,23 @@ const command = new SlashCommand()
             embeds: [
               new MessageEmbed()
                 .setAuthor({
-                  name: "Added to queue",
+                  name: "Dodano do kolejki",
                   iconURL: client.config.iconURL,
                 })
                 .setURL(res.tracks[0].uri)
                 .setThumbnail(res.tracks[0].displayThumbnail("maxresdefault"))
                 .setDescription(
                   `[${trackForPlay?.tracks[0]?.title}](${trackForPlay?.tracks[0].uri})` ||
-                    "No Title"
+                    "Brak tytułu"
                 )
                 .addFields(
                   {
-                    name: "Added by",
+                    name: "Dodane przez",
                     value: `<@${interaction.user.id}>`,
                     inline: true,
                   },
                   {
-                    name: "Duration",
+                    name: "Długość",
                     value: res.tracks[0].isStream
                       ? `\`LIVE :red_circle:\``
                       : `\`${client.ms(res.tracks[0].duration, {
@@ -176,7 +176,7 @@ const command = new SlashCommand()
             embeds: [
               new MessageEmbed()
                 .setDescription(
-                  `No track selected. You took too long to select a track.`
+                  `Nie wybrano utworu. Wybór utworu trwał zbyt długo.`
                 )
                 .setColor(client.config.embedColor),
             ],
