@@ -123,3 +123,4 @@ yarn.lock
 .idea/
 .vscode/
 .history/
+config.js
