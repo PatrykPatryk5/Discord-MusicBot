@@ -128,7 +128,7 @@ module.exports = async (client, oldState, newState) => {
 									name: "Rozłączony!",
 									iconURL: client.config.iconURL,
 									})
-									.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
+									.setFooter({ text: "Opuszczam, ponieważ nie ma już nikogo na kanale głosowym." })
 									.setTimestamp();
 								let Disconnected = await client.channels.cache
 									.get(player.textChannel)
@@ -146,7 +146,7 @@ module.exports = async (client, oldState, newState) => {
 							name: "Rozłączony!",
 							iconURL: client.config.iconURL,
 							})
-							.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
+							.setFooter({ text: "Opuszczam, ponieważ nie ma już nikogo na kanale głosowym." })
 							.setTimestamp();
 						let Disconnected = await client.channels.cache
 							.get(player.textChannel)
@@ -180,7 +180,7 @@ module.exports = async (client, oldState, newState) => {
 								name: "Rozłączony!",
 								iconURL: client.config.iconURL,
 								})
-								.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
+								.setFooter({ text: "Opuszczam, ponieważ nie ma już nikogo na kanale głosowym." })
 								.setTimestamp();
 							let Disconnected = await client.channels.cache
 								.get(player.textChannel)
@@ -200,7 +200,7 @@ module.exports = async (client, oldState, newState) => {
 						name: "Rozłączony!",
 						iconURL: client.config.iconURL,
 						})
-						.setFooter({ text: "Opuszczony, ponieważ nie ma już nikogo na kanale głosowym." })
+						.setFooter({ text: "Opuszczam, ponieważ nie ma już nikogo na kanale głosowym." })
 						.setTimestamp();
 						let Disconnected = await client.channels.cache
 							.get(player.textChannel)

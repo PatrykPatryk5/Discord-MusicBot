@@ -12,7 +12,7 @@ module.exports = async (client, interaction) => {
 	if (!player) {
 		await interaction.reply({
 			embeds: [
-				client.Embed("❌ | **There is no player to control in this server.**"),
+				client.Embed("❌ | **Na tym serwerze nie ma żadnego gracza do kontrolowania.**"),
 			],
 		});
 		setTimeout(() => {
@@ -24,7 +24,7 @@ module.exports = async (client, interaction) => {
 		const joinEmbed = new MessageEmbed()
 			.setColor(client.config.embedColor)
 			.setDescription(
-				"❌ | **You must be in a voice channel to use this action!**",
+				"❌ | **Aby użyć tej akcji, musisz być na kanale głosowym!**",
 			);
 		return interaction.reply({ embeds: [joinEmbed], ephemeral: true });
 	}
@@ -36,7 +36,7 @@ module.exports = async (client, interaction) => {
 		const sameEmbed = new MessageEmbed()
 			.setColor(client.config.embedColor)
 			.setDescription(
-				"❌ | **You must be in the same voice channel as me to use this action!**",
+				"❌ | **Aby użyć tej akcji, musisz być na tym samym kanale głosowym co ja!**",
 			);
 		return await interaction.reply({ embeds: [sameEmbed], ephemeral: true });
 	}
@@ -45,11 +45,11 @@ module.exports = async (client, interaction) => {
 		player.queue.clear();
 		player.stop();
 		player.set("autoQueue", false);
-		client.warn(`Player: ${ player.options.guild } | Successfully stopped the player`);
+		client.warn(`Gracz: ${ player.options.guild } | Gracz został pomyślnie zatrzymany`);
 		const msg = await interaction.channel.send({
 			embeds: [
 				client.Embed(
-					"⏹️ | **Successfully stopped the player**",
+					"⏹️ | **Gracz został pomyślnie zatrzymany**",
 				),
 			],
 		});
@@ -77,7 +77,7 @@ module.exports = async (client, interaction) => {
 			embeds: [
 				new MessageEmbed()
 					.setColor("RED")
-					.setDescription(`There is no previous song played.`),
+					.setDescription(`Nie ma poprzedniej piosenki.`),
 			],
 		});
     }
@@ -95,7 +95,7 @@ module.exports = async (client, interaction) => {
 				embeds: [
 					new MessageEmbed()
 						.setColor("RED")
-						.setDescription("There is no song playing right now."),
+						.setDescription("W tej chwili nie jest odtwarzana żadna piosenka."),
 				],
 			});
 			setTimeout(() => {
@@ -109,7 +109,7 @@ module.exports = async (client, interaction) => {
 			} else {
 				player.pause(true);
 			}
-			client.warn(`Player: ${ player.options.guild } | Successfully ${ player.paused? "paused" : "resumed" } the player`);
+			client.warn(`Gracz: ${ player.options.guild } | Pomyślnie ${ player.paused? "wstrzymany" : "wznowiony" } gracz`);
 
 			return interaction.update({
 				components: [client.createController(player.options.guild, player)],
@@ -126,7 +126,7 @@ module.exports = async (client, interaction) => {
 			embeds: [
 				new MessageEmbed()
 					.setColor("RED")
-					.setDescription(`There is nothing after [${ song.title }](${ song.uri }) in the queue.`),
+					.setDescription(`Nie ma nic po [${ song.title }](${ song.uri }) w kolejce.`),
 			],
 		})} else player.stop();
 		return interaction.deferUpdate
@@ -151,6 +151,6 @@ module.exports = async (client, interaction) => {
 
 	return interaction.reply({
 		ephemeral: true,
-		content: "❌ | **Unknown controller option**",
+		content: "❌ | **Nieznana opcja kontrolera**",
 	});
 };

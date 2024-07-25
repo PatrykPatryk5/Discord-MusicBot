@@ -11,7 +11,7 @@ module.exports = async (client, message) => {
   }&permissions=${client.config.inviteScopes.toString().replace(/,/g, "%20")}`;
 
   const buttons = new MessageActionRow().addComponents(
-    new MessageButton().setStyle("LINK").setLabel("Invite me").setURL(invite),
+    new MessageButton().setStyle("LINK").setLabel("Zaproś mnie").setURL(invite),
     new MessageButton()
       .setStyle("LINK")
       .setLabel("Serwer wsparcia")
@@ -22,7 +22,7 @@ module.exports = async (client, message) => {
     const mentionEmbed = new MessageEmbed()
       .setColor(client.config.embedColor)
       .setDescription(
-        `Mój prefiks na tym serwerze to \`/\` (Slash Command).\nAby rozpocząć, możesz wpisać \`/help\` aby zobaczyć wszystkie moje komendy.\nJeśli go nie widzisz, proszę [re-invite](invite) z odpowiednimi uprawnieniami.`
+        `Mój prefiks na tym serwerze to \`/\` (Slash Command).\nAby rozpocząć, możesz wpisać \`/help\`, aby zobaczyć wszystkie moje komendy.\nJeśli ich nie widzisz, proszę [zaproś ponownie](invite) mnie z prawidłowymi uprawnieniami.`
       );
 
     message.channel.send({
